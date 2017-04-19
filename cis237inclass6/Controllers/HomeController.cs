@@ -26,13 +26,13 @@ namespace cis237inclass6.Controllers
 
             return View();
         }
-
+        //Add my own method that should be reachbe b
+        //the url: /Home/Foo
+        [Authorize]
         public ActionResult Foo()
         {
             ViewBag.MyMagicalFooProperty = "All the Fooos";
             return View();
-
-
         }
     }
 }
