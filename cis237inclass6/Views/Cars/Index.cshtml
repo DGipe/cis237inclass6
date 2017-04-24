@@ -6,6 +6,30 @@
 
 <h2>Index</h2>
 
+<div class="form-group">
+    <fieldset>
+        <legend>Search Filter</legend>
+        @{ 
+            @*open up a form that wil go to te Filter method on the Cars controller with a Post request*@
+            using (Html.BeginForm("Filter", "Cars", FormMethod.Post, new { @class = "form-inline" }))
+            {
+             @*Renter out the AntiForgery Token for thr form*@
+            @Html.AntiForgeryToken()
+
+            <label for="make">Make</label>
+            @Html.TextBox("make", (string)ViewBag.filterMake)
+            <label for="min">Minimum Cylinders</label>
+            @Html.TextBox("min", (string)ViewBag.filterMin)
+            <label for="max">Maximum Cylinders</label>
+            @Html.TextBox("max", (string)ViewBag.filterMax)
+            <br />
+            <input type="submit" value="Filter" class="btn btn-info pull-right" />
+            
+            }
+        }
+    </fieldset>
+</div>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
